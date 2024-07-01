@@ -8,11 +8,6 @@
         http://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:component-scan base-package="by.fenix.lessons"/>
-
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
-
-    <bean id="popMusicBean"
-          class="by.fenix.lessons.PopMusic">
-    </bean>
 
 </beans>
