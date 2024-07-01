@@ -10,8 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-@Component
-@Scope("prototype")
+
 public class MusicPlayer {
     private Music music1;
     private Music music2;
