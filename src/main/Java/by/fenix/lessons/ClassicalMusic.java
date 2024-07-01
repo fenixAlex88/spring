@@ -1,7 +1,8 @@
 package by.fenix.lessons;
 
+import org.springframework.stereotype.Component;
+@Component("classicalMusicBean")
 public class ClassicalMusic implements Music{
-    private ClassicalMusic(){}
 
     public static ClassicalMusic getClassicalMusic(){
         return new ClassicalMusic();

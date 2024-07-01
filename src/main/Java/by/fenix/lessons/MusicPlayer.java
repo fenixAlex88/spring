@@ -1,48 +1,26 @@
 package by.fenix.lessons;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
-
+@Component
 public class MusicPlayer {
-    private void doMyInit(){
-        System.out.println("Doing my initialization");
+    private ClassicalMusic classicalMusic;
+    private RockMusic rockMusic;
+
+    @Autowired
+    public MusicPlayer(ClassicalMusic classicalMusic, RockMusic rockMusicMusic) {
+        this.classicalMusic = classicalMusic;
+        this.rockMusic = rockMusicMusic;
     }
 
-    private void doMyDestroy(){
-        System.out.println("Doing my destruction");
-    }
-
-    private List<Music> musicList = new ArrayList<>();
-    private String name;
-    private int volume;
-
-    public void setVolume(int volume) {
-        this.volume = volume;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getVolume() {
-        return volume;
-    }
-
-    public void setMusicList(List<Music> musicList) {
-        this.musicList = musicList;
-    }
-
-    public MusicPlayer(){}
 
 
-
-    public void playMusic() {
-        for (Music music: musicList) {
-            System.out.println("Playing: " + music.getSong());
-        }
+    public String playMusic() {
+        System.out.println("Playing: " + classicalMusic.getSong());
+        System.out.println("Playing: " + rockMusic.getSong());
+        return "Playing: " + classicalMusic.getSong();
     }
 }
