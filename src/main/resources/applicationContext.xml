@@ -10,7 +10,8 @@
     <context:property-placeholder location="classpath:musicPlayer.properties"/>
 
     <bean id="classicalMusicBean"
-          class="by.fenix.lessons.ClassicalMusic">
+          class="by.fenix.lessons.ClassicalMusic"
+          factory-method="getClassicalMusic">
     </bean>
     <bean id="rockMusicBean"
           class="by.fenix.lessons.RockMusic">
@@ -20,7 +21,10 @@
     </bean>
 
     <bean id="musicPlayer"
-          class="by.fenix.lessons.MusicPlayer">
+          class="by.fenix.lessons.MusicPlayer"
+          scope="prototype"
+          init-method="doMyInit"
+          destroy-method="doMyDestroy">
         <property name="musicList">
             <list>
                 <ref bean="classicalMusicBean"/>
